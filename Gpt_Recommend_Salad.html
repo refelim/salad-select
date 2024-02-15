@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommend Salad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+          <div class="navbar_logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHAcqbzvSn43QHZL_Hl-AEF_FmryhgVbHk6Q&usqp=CAU" alt="salad bar" width="80px" height="80px">
+            <a href=""></a>
+          </div>
+          <ul class="navbar_menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Vegetable</a></li>
+            <li><a href="">Dressing</a></li>
+            <li><a href="">Cheeze</a></li>
+            <li><a href="">Fruit</a></li>
+          </ul>
+    
+        </nav>  
+      </header>
+
+    <Main>
+        <h1>Recommend Salad</h1>
+      
+
+        <div class ="container-box">
+
+            <div class="container">
+                <img src="/91614091-야채와-과일로-가득-찬-오픈-냉장고.jpg" class = "image_section" alt="냉장고">
+                <p>냉장고에 있는 재료</p>
+                <input type="text" class = "input">
+            </div>
+
+            <div class="container">
+                <img src="/기분.png" class = "image_section" alt="기분">
+                <p>기분</p>
+                <input type="text" class = "input">
+            </div>
+
+            <div class="container">
+                <img src="/taste.jpg" class = "image_section" alt="맛">
+                <p>맛</p>
+                <input type="text" class = "input" >
+            </div>
+
+            <div class="container">
+                <img src="/warnning.png" class = "image_section" alt="참고">
+                <p>참고사항</p>
+                <input type="text" class = "input">
+            </div>
+        </div>  
+
+        <div class="Recommend">
+            <form>
+                <button type="submit">추천받기!</button>
+            </form>
+        <div class="answer"></div>
+        </div>
+    </Main>
+    <script>
+        const $input = document.querySelectorAll('.input')
+        const $button = document.querySelector('button')
+        const $answer = document.querySelector('.answer')
+
+        const data = []
+        data.push({
+            "role": "system",
+            "content": "샐러드를 추천해주는 백종원 사장님"
+        })
+
+        const url = `https://open-api.jejucodingcamp.workers.dev/`
+
+        $button.addEventListener('click', e => {
+            e.preventDefault()
+            const contents = []  // 수정된 부분: contents 배열 추가
+            $input.forEach(input => {
+                contents.push(input.value)  // 수정된 부분: input.value를 contents 배열에 추가
+            })
+            data.push({
+                "role": "user",
+                "content": contents  // 수정된 부분: contents 배열을 data에 추가
+            })
+            $input.forEach(input => {
+                input.value = ''  // 수정된 부분: input 값을 비워줌
+            })
+
+            chatGPTAPI()
+        })
+
+        function chatGPTAPI() {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data),
+                redirect: 'follow'
+            })
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                // 답변 온 것을 assistant로 저장
+                $answer.innerHTML = `<p>${res.choices[0].message.content}</p>`
+            })
+        }
+    </script>
+</body>
+</html>

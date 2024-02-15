@@ -1,0 +1,80 @@
+.navbar {
+    display : flex;
+    justify-content: space-between;
+    align-items : center;
+    Background-color: #263343;
+    padding: 8px 12px;
+}
+
+body {
+    margin : 0;
+}
+
+a {
+    text-decoration: none;
+    color : white;
+
+}
+
+.navbar__logo {
+    font-size: 24px;
+    color : white;
+}
+
+.navbar__logo i {
+    color: #d49466;
+}
+
+.navbar_menu {
+    display : flex;
+    list-style : none;
+    padding-left : 0;
+}
+
+.navbar_menu li {
+    padding : 8px 12px;
+}
+
+h1 {
+    
+    text-align: center;
+    font-size: 90px
+  }
+
+.container {
+    padding-left : 100px;
+    padding-right: 100px;
+  }
+
+.container-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .input {
+    width: 150px;
+    height: 20px; 
+  }
+
+.image_section {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.Recommend {
+    text-align: center;
+}
+
+button {
+    margin-top: 60px;
+    width : 400px;
+    height: 75px;
+    background-color: yellow;
+    display: inline-block;
+    border : none;
+    font-size : 50px;
+}
