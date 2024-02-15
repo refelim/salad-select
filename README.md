@@ -1,2 +1,6 @@
-# salad-select
-salad select
+# GPT - Recommend - Salad
+
+수많은 샐러드 중에서 무엇을 먹을까 고민이다면.
+
+GPT가 지금 냉장고에 들어있는 재료, 기분, 원하는 맛에 따라서 샐러드를 추천해줍니다.
+
