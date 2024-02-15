@@ -33,83 +33,45 @@
         <div class ="container-box">
 
             <div class="container">
-                <img src="91614091-야채와-과일로-가득-찬-오픈-냉장고.jpg" class = "image_section" alt="냉장고">
+                <img src="/91614091-야채와-과일로-가득-찬-오픈-냉장고.jpg" class = "image_section" alt="냉장고">
                 <p>냉장고에 있는 재료</p>
-                <input type="text" class = "input">
+                <input type="text" class = "input" id = "refe">
             </div>
 
             <div class="container">
-                <img src="기분.png" class = "image_section" alt="기분">
+                <img src="/기분.png" class = "image_section" alt="기분">
                 <p>기분</p>
-                <input type="text" class = "input">
+                <input type="text" class = "input" id = mood>
             </div>
 
             <div class="container">
-                <img src="taste.jpg" class = "image_section" alt="맛">
+                <img src="/taste.jpg" class = "image_section" alt="맛">
                 <p>맛</p>
-                <input type="text" class = "input" >
+                <input type="text" class = "input" id = taste list="list" >
+                <datalist id="list">
+                  <option value="단맛"></option>
+                  <option value="짠맛"></option>
+                  <option value="쓴맛"></option>
+                  <option value="신맛"></option>
+                  <option value="감칠맛"></option>
+                </datalist>
             </div>
 
             <div class="container">
-                <img src="warnning.png" class = "image_section" alt="참고">
+                <img src="/warnning.png" class = "image_section" alt="참고">
                 <p>참고사항</p>
-                <input type="text" class = "input">
+                <input type="text" class = "input" id = "warnning">
             </div>
         </div>  
 
         <div class="Recommend">
-            <form>
-                <button type="submit">추천받기!</button>
+            <form action="">
+                <button type="submit">선택</button>
             </form>
-        <div class="answer"></div>
         </div>
     </Main>
     <script>
-        const $input = document.querySelectorAll('.input')
-        const $button = document.querySelector('button')
-        const $answer = document.querySelector('.answer')
 
-        const data = []
-        data.push({
-            "role": "system",
-            "content": "샐러드를 추천해주는 백종원 사장님"
-        })
-
-        const url = `https://open-api.jejucodingcamp.workers.dev/`
-
-        $button.addEventListener('click', e => {
-            e.preventDefault()
-            const contents = []  // 수정된 부분: contents 배열 추가
-            $input.forEach(input => {
-                contents.push(input.value)  // 수정된 부분: input.value를 contents 배열에 추가
-            })
-            data.push({
-                "role": "user",
-                "content": contents  // 수정된 부분: contents 배열을 data에 추가
-            })
-            $input.forEach(input => {
-                input.value = ''  // 수정된 부분: input 값을 비워줌
-            })
-
-            chatGPTAPI()
-        })
-
-        function chatGPTAPI() {
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data),
-                redirect: 'follow'
-            })
-            .then(res => res.json())
-            .then(res => {
-                console.log(res)
-                // 답변 온 것을 assistant로 저장
-                $answer.innerHTML = `<p>${res.choices[0].message.content}</p>`
-            })
-        }
     </script>
 </body>
 </html>
