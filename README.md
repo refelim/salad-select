@@ -25,9 +25,11 @@
 2. 배포 : GitHub Page https://refelim.github.io/salad-select/
 
 
+* 와이어 프레임 
 ![select salad  index](https://github.com/refelim/salad-select/assets/144616336/10a25306-b8c7-47a9-beb0-7b5dc4bc2a40)
+1. Home
 
 
 ![select salad  결과](https://github.com/refelim/salad-select/assets/144616336/559d31a1-4308-4d86-9998-95d6ce460789)
-
+2. Result
 
