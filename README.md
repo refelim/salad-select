@@ -21,7 +21,7 @@
 
 
 * 개발 환경
-1. JS
+1. JS, HTML/CSS
 2. 배포 : GitHub Page https://refelim.github.io/salad-select/
 
 
@@ -33,3 +33,11 @@
 ![select salad  결과](https://github.com/refelim/salad-select/assets/144616336/559d31a1-4308-4d86-9998-95d6ce460789)
 2. Result
 
+
+## 개발하면 느낀점
+
+* 나만의 웹 페이지를 만드는게 처음인데, 항상 보고만 있다가 직접 만들어보니 흥미로웠다. 그런데 디자인은 생각 해봐야겠다. 
+
+* JS가 어렵다 그렇지만 첫 웹페이지이기에 끝까지 완성해보자.
+
+* 간단하게 생각했던 Readme 작성도 시간이 오래 걸리기에 반복적으로 학습하자. 
